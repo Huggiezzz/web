@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Phishing</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url("https://wallpapers.com/images/hd/black-and-white-anonymous-hacker-0t3ibs8rld889nia.jpg") no-repeat center center fixed;
+            background-size: cover;
+            color: #3A5311; /* Color del texto cambiado */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+        .container {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 8px;
+            width: 300px;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #e74c3c;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+        .error {
+            color: #e74c3c;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Simulador de Phishing</h1>
+        <form id="phishingForm" method="POST">
+            <input type="text" id="emailOrPhone" name="emailOrPhone" placeholder="Correo o Teléfono" required>
+            <button type="submit">Enviar E-mail</button>
+            <p class="error" id="errorMessage"></p>
+        </form>
+    </div>
+    <script>
+        document.getElementById('phishingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var form = e.target;
+            var errorMessage = document.getElementById('errorMessage');
+
+            fetch("/", {
+                method: "POST",
+                body: new FormData(form)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === "success") {
+                    alert(data.message);
+                    form.reset();
+                    errorMessage.style.display = 'none';
+                } else {
+                    errorMessage.textContent = data.message;
+                    errorMessage.style.display = 'block';
+                }
+            })
+            .catch(error => {
+                errorMessage.textContent = "Error al enviar el correo electrónico.";
+                errorMessage.style.display = 'block';
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+            
