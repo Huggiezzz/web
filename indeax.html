@@ -11,20 +11,23 @@
             background-size: cover;
             color: #fff;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
+            justify-content: center;
             height: 100vh;
             margin: 0;
             text-align: center;
+            background-color: rgba(0, 0, 0, 0.6); /* Oscurece el fondo */
         }
-        .container {
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        form {
             background-color: rgba(0, 0, 0, 0.7);
             padding: 20px;
             border-radius: 8px;
             width: 300px;
-        }
-        h1 {
-            font-size: 24px;
             margin-bottom: 20px;
         }
         input[type="text"], input[type="number"] {
@@ -51,23 +54,21 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Phishing Simulator</h1>
-        
-        <!-- Formulario para enviar correos electrónicos -->
-        <form id="phishingEmailForm" action="{{ url_for('send_email_route') }}" method="POST">
-            <input type="text" id="emailIngreso" name="ingreso" placeholder="Ingresa el correo" required>
-            <button type="submit">Enviar Email</button>
-            <p class="error" id="emailErrorMessage"></p>
-        </form>
+    <h1>Phishing Simulator</h1>
+    
+    <!-- Formulario para enviar correos electrónicos -->
+    <form id="phishingEmailForm" action="{{ url_for('send_email_route') }}" method="POST">
+        <input type="text" id="emailIngreso" name="ingreso" placeholder="Ingresa el correo" required>
+        <button type="submit">Enviar Email</button>
+        <p class="error" id="emailErrorMessage"></p>
+    </form>
 
-        <!-- Formulario para enviar SMS -->
-        <form id="phishingSmsForm" action="{{ url_for('send_sms_route') }}" method="POST">
-            <input type="text" id="phoneIngreso" name="phone_number" placeholder="Ingresa el número de teléfono" required>
-            <button type="submit">Enviar SMS</button>
-            <p class="error" id="smsErrorMessage"></p>
-        </form>
-    </div>
+    <!-- Formulario para enviar SMS -->
+    <form id="phishingSmsForm" action="{{ url_for('send_sms_route') }}" method="POST">
+        <input type="text" id="phoneIngreso" name="phone_number" placeholder="Ingresa el número de teléfono" required>
+        <button type="submit">Enviar SMS</button>
+        <p class="error" id="smsErrorMessage"></p>
+    </form>
 
     <script>
         document.getElementById('phishingEmailForm').addEventListener('submit', function(e) {
@@ -124,7 +125,6 @@
     </script>
 </body>
 </html>
-
 
 
 
