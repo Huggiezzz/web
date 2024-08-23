@@ -62,7 +62,7 @@
         <button type="submit">Enviar Email</button>
         <p class="error" id="emailErrorMessage"></p>
     </form>
-
+<br>
     <!-- Formulario para enviar SMS -->
     <form id="phishingSmsForm" action="{{ url_for('send_sms_route') }}" method="POST">
         <input type="text" id="phoneIngreso" name="phone_number" placeholder="Ingresa el número de teléfono" required>
