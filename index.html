@@ -9,7 +9,7 @@
             margin: 0;
             padding: 0;
             font-family: 'Courier New', Courier, monospace;
-            color: #e0e0e0; 
+            color: #e0e0e0;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -28,7 +28,7 @@
             width: 100%;
             height: 100%;
             z-index: -2;
-            opacity: 0.5; 
+            opacity: 0.5;
         }
 
         .overlay {
@@ -37,7 +37,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5);            
+            background: rgba(0, 0, 0, 0.5);
             z-index: -1;
         }
 
@@ -58,23 +58,28 @@
         }
 
         a {
-            color: #e0e0e0;
+            display: block;
             text-decoration: none;
-            padding: 10px 20px;
-            border: 2px solid #e0e0e0; 
-            border-radius: 5px;
-            display: inline-block;
-            background-color: #333;
-        }
-
-        a:hover {
-            background-color: #555; 
+            margin-bottom: 20px;
         }
 
         a img {
-            vertical-align: middle;
-            max-height: 30px; 
-            margin-right: 10px; 
+            display: block;
+            border: none;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .text-button {
+            color: #e0e0e0;
+            font-size: 18px;
+            padding: 10px;
+            background-color: #333;
+            border-radius: 5px;
+        }
+
+        .text-button:hover {
+            background-color: #555;
         }
     </style>
 </head>
@@ -83,12 +88,10 @@
     <div class="overlay"></div>
     <div class="content">
         <p>Bienvenido! Aquí crearás tus propios ataques de phishing (todo es con fines educativos).</p>
-        <p>
-            <a href="pagina2.html">
-                <img src="https://png.pngtree.com/png-clipart/20230120/original/pngtree-green-skull-cartoon-png-image_8923565.png" alt="Icono de inicio">
-                ¡Haz clic aquí para comenzar!
-            </a>
-        </p>
+        <a href="pagina2.html">
+            <img src="ruta-a-tu-imagen.png" alt="Botón de inicio">
+        </a>
+        <p class="text-button">¡Haz clic en el botón de arriba para comenzar!</p>
     </div>
 </body>
 </html>
