@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -8,24 +9,11 @@
             margin: 0;
             padding: 0;
             font-family: 'Courier New', Courier, monospace;
-            color: green;
+            color: #ffffff;
             text-align: center;
-            position: relative;
-            overflow: hidden;
             height: 100vh;
-        }
-
-        .background-image {
-            background-image: url('https://static.vecteezy.com/system/resources/previews/003/217/796/non_2x/cyber-hacker-attack-background-skull-vector.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -2;
+            background: url('https://wallpapers.com/images/hd/hacking-background-bryw246r4lx5pyue.jpg') no-repeat center center/cover;
+            position: relative;
         }
 
         .overlay {
@@ -34,49 +22,75 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: -1;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 0;
         }
 
         .content {
             position: relative;
             z-index: 1;
             padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 8px;
+            display: inline-block;
         }
 
-        p {
-            font-size: 24px;
-            margin: 20px 0;
+        figure {
+            display: inline-block;
+            margin: 20px;
         }
 
-        a {
-            color: green;
-            text-decoration: underline;
+        img {
+            width: 110px;
+            height: 110px;
+        }
+
+        figcaption {
+            color: #ffffff;
+            font-size: 16px;
+            margin-top: 10px;
         }
 
         ul {
             list-style-type: none;
             padding: 0;
-            font-size: 24px;
+            font-size: 18px;
+            max-width: 400px;
+            margin: 20px auto 0;
             text-align: left;
+            color: #ffffff;
         }
 
         li {
             margin-bottom: 10px;
         }
+
+        a {
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
-    <div class="background-image"></div>
     <div class="overlay"></div>
     <div class="content">
-        <p>Primero que todo, esto es solo con FINES EDUCATIVOS</p>
-        <p>Cualquier mal uso que se le dé a esta página no nos hacemos responsables</p>
-        <p><a href="x.html">En esta página se envían E-mails</a></p>
-        <p><a href="pagina.html">En esta página se envían mensajes de teléfono</a></p>
-        <p>Necesitarás:</p>
+        <h1><strong>Menú Principal</strong></h1>
+        <h3><strong>Elige qué ataque deseas utilizar</strong></h3>
+
+        <figure>
+            <a href="{{ url_for('index') }}">
+                <img src="https://cdn-icons-png.flaticon.com/512/2250/2250206.png" alt="Phishing Email">
+            </a>
+            <figcaption>Phishing Email</figcaption>
+        </figure>
+        <figure>
+            <a href="{{ url_for('index') }}">
+                <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Phishing SMS">
+            </a>
+            <figcaption>Phishing SMS</figcaption>
+        </figure>
+
         <ul>
-            <li>El navegador con el que estás viendo esta pagina</li>
+            <li>El navegador con el que estás viendo esta página</li>
             <li>Una VPN para evitar rastreos no deseados, ya que la página no es "https"</li>
             <li>El correo o el número de la víctima</li>
             <li>Malicia</li>
